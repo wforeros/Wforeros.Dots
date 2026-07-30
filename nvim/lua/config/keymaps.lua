@@ -145,3 +145,12 @@ vim.keymap.set("n", "<leader>/", function()
   -- Search using the escaped text
   vim.api.nvim_feedkeys("/\\V" .. escaped, "n", false)
 end, { desc = "Search clipboard text literally" })
+
+-- Open files using windows (WSL only)
+local utils = require("config.utils")
+utils.keymap_if(utils.is_wsl, "n", "<leader>xo", function()
+  local file = vim.fn.expand("%:p")
+  local win_path = vim.fn.system({ "wslpath", "-w", file }):gsub("\n", "")
+
+  vim.fn.jobstart({ "cmd.exe", "/c", "start", "", win_path }, { detach = true })
+end, { desc = "Open file in Windows" })
