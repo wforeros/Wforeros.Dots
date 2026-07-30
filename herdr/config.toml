@@ -122,10 +122,16 @@ last_pane = "prefix+p" # optional, unset by default; bind e.g. "prefix+tab" for 
 # type = "shell" runs detached in the background.
 # type = "pane" opens a temporary pane and closes it when the command exits.
 # On Windows, command strings run through cmd.exe /d /c.
-# [[keys.command]]
-# key = "prefix+alt+g"
-# type = "pane"
-# command = "lazygit"
+
+[[keys.command]]
+key = "prefix+shift+g"
+type = "pane"
+command = "lazygit"
+
+[[keys.command]]
+key = "prefix+shift+h"
+type = "pane"
+command = "hunk diff"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
