@@ -61,7 +61,8 @@ return {
         -- "ivy_wider_preview",
         -- "ivy_taller",
         -- preset = "ivy",
-        preset = "default",
+        -- preset = "default",
+        preset = "vertical",
         -- When reaching the bottom of the results in the picker, I don't want
         -- it to cycle and go back to the top
         cycle = false,
@@ -97,18 +98,14 @@ return {
         --
         vertical = {
           layout = {
-            backdrop = false,
-            width = 0.8,
-            min_width = 80,
-            height = 0.8,
-            min_height = 30,
             box = "vertical",
+            backdrop = false,
+            width = 0,
+            height = 0.999,
             border = "rounded",
-            title = "{title} {live} {flags}",
-            title_pos = "center",
             { win = "input", height = 1, border = "bottom" },
-            { win = "list", border = "none" },
-            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+            { win = "list", height = 0.20 }, -- 20% de altura para la lista de archivos (arriba)
+            { win = "preview", height = 0.80, border = "top" }, -- 80% de altura para la preview (abajo)
           },
         },
 
